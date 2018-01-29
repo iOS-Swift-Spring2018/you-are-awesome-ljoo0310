@@ -4,7 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,26 +24,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-qh-Ooo">
-                                <rect key="frame" x="16" y="20" width="343" height="77"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-qh-Ooo">
+                                <rect key="frame" x="16" y="20" width="343" height="136"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="136" id="Vtd-Mu-17l"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNK-ND-ky9">
-                                <rect key="frame" x="135" y="105" width="104" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNK-ND-ky9">
+                                <rect key="frame" x="135" y="164" width="104" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="r4S-BT-nkV"/>
+                                </constraints>
                                 <state key="normal" title="Show Message"/>
                                 <connections>
                                     <action selector="messageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="61A-es-vWv"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HNr-Q3-bt2">
+                                <rect key="frame" x="16" y="202" width="343" height="445"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="HNr-Q3-bt2" secondAttribute="bottom" constant="20" symbolic="YES" id="7jb-b1-FTI"/>
+                            <constraint firstItem="HNr-Q3-bt2" firstAttribute="top" secondItem="mNK-ND-ky9" secondAttribute="bottom" constant="8" symbolic="YES" id="7xP-cu-nqa"/>
+                            <constraint firstItem="0fd-qh-Ooo" firstAttribute="centerX" secondItem="mNK-ND-ky9" secondAttribute="centerX" id="FHP-Au-pQ5"/>
+                            <constraint firstItem="0fd-qh-Ooo" firstAttribute="trailing" secondItem="HNr-Q3-bt2" secondAttribute="trailing" id="GFK-So-jJJ"/>
+                            <constraint firstItem="0fd-qh-Ooo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="R5E-BK-G5v"/>
+                            <constraint firstItem="0fd-qh-Ooo" firstAttribute="leading" secondItem="HNr-Q3-bt2" secondAttribute="leading" id="Uro-YI-UkR"/>
+                            <constraint firstItem="0fd-qh-Ooo" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="qr3-wu-eD1"/>
+                            <constraint firstItem="mNK-ND-ky9" firstAttribute="top" secondItem="0fd-qh-Ooo" secondAttribute="bottom" constant="8" symbolic="YES" id="sH6-iE-sg6"/>
+                            <constraint firstItem="0fd-qh-Ooo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sxu-Af-3mN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="awesomeImage" destination="HNr-Q3-bt2" id="toz-Cc-Kq7"/>
                         <outlet property="messageLabel" destination="0fd-qh-Ooo" id="D58-8J-MCj"/>
                     </connections>
                 </viewController>
